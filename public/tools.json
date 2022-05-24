@@ -1,0 +1,56 @@
+[
+    {
+        "_id": "628d1315707f6e887800dd44",
+        "name": "Arduino Nano",
+        "picture": "https://i.ibb.co/gS2FwMT/Arduino-Nano-Price-in-BD.jpg",
+        "price": 23,
+        "minimum_order": 200,
+        "available_stock": 50,
+        "short_description": "Magna nisi do officia officia voluptate occaecat ea aute ex nulla."
+    },
+    {
+        "_id": "628d131538834d2a05742f63",
+        "name": "Arduino Nano",
+        "picture": "https://i.ibb.co/gS2FwMT/Arduino-Nano-Price-in-BD.jpg",
+        "price": 22,
+        "minimum_order": 200,
+        "available_stock": 50,
+        "short_description": "Dolore et mollit officia enim mollit velit dolore ea exercitation id nisi commodo."
+    },
+    {
+        "_id": "628d13151c376307e87ae729",
+        "name": "Arduino Nano",
+        "picture": "https://i.ibb.co/gS2FwMT/Arduino-Nano-Price-in-BD.jpg",
+        "price": 36,
+        "minimum_order": 50,
+        "available_stock": 500,
+        "short_description": "Et commodo minim esse magna cupidatat dolor excepteur tempor dolor ad dolor in cupidatat."
+    },
+    {
+        "_id": "628d13150b3a7d523c109a82",
+        "name": "Arduino Nano",
+        "picture": "https://i.ibb.co/gS2FwMT/Arduino-Nano-Price-in-BD.jpg",
+        "price": 21,
+        "minimum_order": 200,
+        "available_stock": 500,
+        "short_description": "Sit cupidatat est aliquip proident consectetur eu cupidatat culpa et."
+    },
+    {
+        "_id": "628d13151517847b774fb52b",
+        "name": "Arduino Nano",
+        "picture": "https://i.ibb.co/gS2FwMT/Arduino-Nano-Price-in-BD.jpg",
+        "price": 23,
+        "minimum_order": 200,
+        "available_stock": 50,
+        "short_description": "Cillum cupidatat consequat deserunt voluptate amet exercitation minim deserunt consequat excepteur labore."
+    },
+    {
+        "_id": "628d13151517847b774fb52b",
+        "name": "Arduino Nano",
+        "picture": "https://i.ibb.co/gS2FwMT/Arduino-Nano-Price-in-BD.jpg",
+        "price": 23,
+        "minimum_order": 200,
+        "available_stock": 50,
+        "short_description": "Cillum cupidatat consequat deserunt voluptate amet exercitation minim deserunt consequat excepteur labore."
+    }
+]
