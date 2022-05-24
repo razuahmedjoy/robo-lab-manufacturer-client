@@ -45,15 +45,7 @@ const FaqSection = () => {
             </div>
 
 
-            <div className="w-full md:w-3/4 mx-auto mt-10 bg-secondary text-white p-2 rounded-lg">
-                <div>
-                    <h1 className="text-lg md:text-3xl">Have any Question About us?</h1>
-                    <p className="text-md md:text-lg">Don't Hesitate to Contact us</p>
-                </div>
-                <div className="mt-5 text-center">
-                    <Link to="/contact" className="btn btn-dark">Contact us</Link>
-                </div>
-            </div>
+          
         </div>
     );
 };
