@@ -4,6 +4,8 @@ import Reviews from './Reviews';
 import ServiceCounter from './ServiceCounter';
 import Tools from './Tools';
 import './Homepage.css';
+import CustomizedTools from './CustomizedTools';
+import FaqSection from './FaqSection';
 
 const HomePage = () => {
     return (
@@ -30,9 +32,22 @@ const HomePage = () => {
 
             </section>
 
+            {/* get customized tools */}
+
+            <section>
+                <CustomizedTools/>
+            </section>
+
             {/* stats */}
             <section>
                 <ServiceCounter/>
+
+            </section>
+
+
+            {/* FAQ Section */}
+            <section>
+                <FaqSection/>
 
             </section>
         </main>
