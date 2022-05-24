@@ -5,7 +5,7 @@ const ToolsGrid = ({ tool }) => {
     return (
         <div class="card md:max-w-sm bg-base-100 shadow-xl m-5">
             <figure><img className="w-3/4 h-auto" src={picture} alt={name} /></figure>
-            <div class="card-body p-2 md:p-5">
+            <div class="card-body p-4 md:p-6">
                 <h2 class="card-title">
                     {name}
 
