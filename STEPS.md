@@ -1,0 +1,4 @@
+- create react-app
+- install react-router dom
+- install tailwind css and daisyui
+- install heroslider npm install --save react-awesome-slider
