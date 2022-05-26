@@ -22,6 +22,7 @@ import AddTools from './components/pages/Dashboard/Admin/AddTools';
 import Blogs from './components/Blogs/Blogs';
 import NotFoundPage from './components/NotFoundPage';
 import ManageTools from './components/pages/Dashboard/Admin/ManageTools';
+import MyPortFolio from './components/pages/MyPortFolio';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/forget-pass" element={<ForgotPass />}></Route>
           <Route path="/blogs" element={<Blogs />}></Route>
+          <Route path="/portfolio" element={<MyPortFolio />}></Route>
 
           <Route path="/details/:id" element={<RequireAuth><ToolsDetails /></RequireAuth>}></Route>
           <Route path="/order/:id" element={<RequireAuth><OrderModal /></RequireAuth>}></Route>
