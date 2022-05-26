@@ -6,7 +6,7 @@ const Blogs = () => {
             <div className="max-w-lg mx-auto my-5">
 
 
-                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                <div tabIndex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         How will you improve the performance of a React Application?
                     </div>
@@ -35,7 +35,7 @@ const Blogs = () => {
                 </div>
 
 
-                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                <div tabIndex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         What are the different ways to manage a state in a React application?
                     </div>
@@ -64,7 +64,7 @@ const Blogs = () => {
                 </div>
 
 
-                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                <div tabIndex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         How does prototypical inheritance work?
 
@@ -77,7 +77,7 @@ const Blogs = () => {
 
                     </div>
                 </div>
-                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                <div tabIndex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts
 
@@ -94,7 +94,7 @@ const Blogs = () => {
 
 
 
-                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                <div tabIndex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?
 
@@ -110,7 +110,7 @@ const Blogs = () => {
                     </div>
                 </div>
 
-                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                <div tabIndex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
                         What is a unit test? Why should write unit tests?
 

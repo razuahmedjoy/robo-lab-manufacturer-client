@@ -9,7 +9,7 @@ const SideBar = () => {
     if(setProfileLoading){
         return <Loader/>
     }
-    
+
     const AdminSidebar = () => {
         return (
 
@@ -19,6 +19,9 @@ const SideBar = () => {
             </li>
             <li>
                 <Link to="addtools">Add Tools</Link>
+            </li>
+            <li>
+                <Link to="managetools">Manage Tools</Link>
             </li>
             <li>
                 <Link to="allusers">All Users</Link>

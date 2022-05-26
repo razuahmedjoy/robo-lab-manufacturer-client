@@ -21,6 +21,7 @@ import AllUsers from './components/pages/Dashboard/Admin/AllUsers';
 import AddTools from './components/pages/Dashboard/Admin/AddTools';
 import Blogs from './components/Blogs/Blogs';
 import NotFoundPage from './components/NotFoundPage';
+import ManageTools from './components/pages/Dashboard/Admin/ManageTools';
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
             <Route path="manageOrders" element={<RequireAdmin><ManageOrders/></RequireAdmin>}></Route>
             <Route path="allusers" element={<RequireAdmin><AllUsers/></RequireAdmin>}></Route>
             <Route path="addtools" element={<RequireAdmin><AddTools/></RequireAdmin>}></Route>
+            <Route path="managetools" element={<RequireAdmin><ManageTools/></RequireAdmin>}></Route>
           </Route>
 
           <Route path="*" element={<NotFoundPage/>} ></Route>
