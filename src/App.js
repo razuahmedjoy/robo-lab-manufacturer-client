@@ -15,6 +15,9 @@ import Dashboard from './components/pages/Dashboard/Dashboard';
 import MyOrders from './components/pages/Dashboard/Customers/MyOrders';
 import AddReview from './components/pages/Dashboard/Customers/AddReview';
 import MyProfile from './components/pages/Dashboard/MyProfile';
+import ManageOrders from './components/pages/Dashboard/Admin/ManageOrders';
+import RequireAdmin from './components/shared/RequireAdmin/RequireAdmin';
+
 
 function App() {
   return (
@@ -39,6 +42,8 @@ function App() {
             <Route path="my-orders" element={<MyOrders/>}></Route>
             <Route path="addreview" element={<AddReview/>}></Route>
             <Route path="myProfile" element={<MyProfile/>}></Route>
+
+            <Route path="manageOrders" element={<RequireAdmin><ManageOrders/></RequireAdmin>}></Route>
           </Route>
 
         </Routes>

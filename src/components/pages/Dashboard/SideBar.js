@@ -1,7 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useProfile from '../../../hooks/useProfile';
 
 const SideBar = () => {
+    const [profile, setProfile, setProfileLoading] = useProfile();
+
+    const AdminSidebar = () => {
+        return (
+
+            <li>
+                <Link to="manageOrders">Manage Orders</Link>
+            </li>
+        )
+    }
+
+    const UserSiderBar = () => {
+        return (
+            <>
+                <li>
+                    <Link to="my-orders">My Orders</Link>
+                </li>
+                <li>
+                    <Link to="addreview">Add Review</Link>
+                </li>
+            </>
+        )
+    }
+
     return (
         <div className="drawer-side shadow-xl">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -10,12 +35,14 @@ const SideBar = () => {
                 <li>
                     <Link to="myProfile">My Profile</Link>
                 </li>
-                <li>
-                    <Link to="my-orders">My Orders</Link>
-                </li>
-                <li>
-                    <Link to="addreview">Add Review</Link>
-                </li>
+
+                {
+                    profile.role === 'admin' ? 
+                    <AdminSidebar /> :
+                    <UserSiderBar/>
+                }
+
+
 
 
 
