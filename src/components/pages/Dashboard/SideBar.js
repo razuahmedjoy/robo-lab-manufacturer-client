@@ -8,12 +8,17 @@ const SideBar = () => {
             <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
 
                 <li>
+                    <Link to="myProfile">My Profile</Link>
+                </li>
+                <li>
                     <Link to="my-orders">My Orders</Link>
                 </li>
                 <li>
                     <Link to="addreview">Add Review</Link>
                 </li>
-                
+
+
+
             </ul>
 
         </div>

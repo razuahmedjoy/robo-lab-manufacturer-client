@@ -12,6 +12,7 @@ const useToken = (user) => {
             const currentUser = {
                 email: email,
                 role: 'customer',
+                
             }
             // console.log(currentUser)
 

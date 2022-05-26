@@ -14,6 +14,7 @@ import OrderModal from './components/pages/ToolsDetails/OrderModal';
 import Dashboard from './components/pages/Dashboard/Dashboard';
 import MyOrders from './components/pages/Dashboard/Customers/MyOrders';
 import AddReview from './components/pages/Dashboard/Customers/AddReview';
+import MyProfile from './components/pages/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -34,9 +35,10 @@ function App() {
           
           
           <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
-            <Route index element={<div>Dashboard Index</div>}></Route>
+            <Route index element={<MyProfile/>}></Route>
             <Route path="my-orders" element={<MyOrders/>}></Route>
             <Route path="addreview" element={<AddReview/>}></Route>
+            <Route path="myProfile" element={<MyProfile/>}></Route>
           </Route>
 
         </Routes>
