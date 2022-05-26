@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
+import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
 import Loader from '../../shared/Loader';
 
@@ -23,14 +25,33 @@ const MyProfile = () => {
         return <Loader />
     }
 
-    const updateProfile = (e)=>{
+    const updateProfile = async (e)=>{
         e.preventDefault();
 
-        const profile = {
-            education:e.target.education.value,
-            address:e.target.address.value,
-            contactno:e.target.contactno.address,
-            linkedin:e.target.linkedin.address,
+
+        const profile = {}
+        if(e.target.education.value){
+            profile['education'] = e.target.education.value
+        }
+        if(e.target.address.value){
+            profile['address'] = e.target.address.value
+        }
+        
+        if(e.target.contactno.value){
+            profile['contactno'] = e.target.contactno.value
+        }
+        if(e.target.linkedin.value){
+            profile['linkedin'] = e.target.linkedin.value
+        }
+        
+        
+
+        const res = await axiosPrivate.put(`http://localhost:5000/updateprofile/${user?.email}`,profile)
+        const data = res.data.result;
+        if(data.modifiedCount){
+            toast.success("Updated Info!");
+            refetch()
+
         }
         
     }
@@ -39,8 +60,8 @@ const MyProfile = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div className="profile p-2">
-                    <div class="overflow-x-auto">
-                        <table class="table table-compact table-bordered w-full">
+                    <div className="overflow-x-auto">
+                        <table className="table table-compact table-bordered w-full">
                         
                             <tbody>
                               
@@ -57,7 +78,7 @@ const MyProfile = () => {
                                     <td>Role:</td>
                                     <td>{profile?.role}</td>
                                     <td>Address:</td>
-                                    <td>{user?.address}</td>
+                                    <td>{profile?.address}</td>
                                    
                                 </tr>
                                 <tr>
@@ -68,9 +89,9 @@ const MyProfile = () => {
                                 <tr>
                                  
                                     <td>Education:</td>
-                                    <td>{user?.education}</td>
+                                    <td>{profile?.education}</td>
                                     <td>Contact No:</td>
-                                    <td>{user?.contactno}</td>
+                                    <td>{profile?.contactno}</td>
                                    
                                 </tr>
                                 <tr>
@@ -81,7 +102,7 @@ const MyProfile = () => {
                                 <tr>
                                  
                                     <td>LinkedIn:</td>
-                                    <td>{user?.linkedin}</td>
+                                    <td>{profile?.linkedin}</td>
                                    
                                 </tr>
                            
@@ -93,11 +114,11 @@ const MyProfile = () => {
                     <h2 className="text-3xl text-center">Update Profile Info</h2>
                     <form onSubmit={updateProfile} className="flex flex-col items-center justify-center text-center mt-4 gap-y-2 mx-2">
                     
-                    <input required type="text" name="education" placeholder="Education" class="input input-bordered w-full" />
-                    <input required type="text" name="address" placeholder="Address" class="input input-bordered w-full" />
-                    <input required type="number" name="contactno" placeholder="Phone no." class="input input-bordered w-full" />
-                    <input type="url" name="linkedin" placeholder="Linked In Account" class="input input-bordered w-full" />
-                    <input type="submit" value="Update"  class="btn btn-primary text-white w-full" />
+                    <input  type="text" name="education" placeholder="Education" className="input input-bordered w-full" />
+                    <input  type="text" name="address" placeholder="Address" className="input input-bordered w-full" />
+                    <input  type="number" name="contactno" placeholder="Phone no." className="input input-bordered w-full" />
+                    <input type="url" name="linkedin" placeholder="Linked In Account" className="input input-bordered w-full" />
+                    <input type="submit" value="Update"  className="btn btn-primary text-white w-full" />
 
                     
 
