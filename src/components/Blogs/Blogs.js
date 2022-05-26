@@ -6,11 +6,11 @@ const Blogs = () => {
             <div className="max-w-lg mx-auto my-5">
 
 
-                <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-                    <div class="collapse-title text-xl font-medium">
+                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                    <div className="collapse-title text-xl font-medium">
                         How will you improve the performance of a React Application?
                     </div>
-                    <div class="collapse-content">
+                    <div className="collapse-content">
                         <p>
                             There are so many ways to improve performance. Some of them are
                         </p>
@@ -35,11 +35,11 @@ const Blogs = () => {
                 </div>
 
 
-                <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-                    <div class="collapse-title text-xl font-medium">
+                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                    <div className="collapse-title text-xl font-medium">
                         What are the different ways to manage a state in a React application?
                     </div>
-                    <div class="collapse-content">
+                    <div className="collapse-content">
                         <p>
                             Mainly 4 Types of State we can use
                         </p>
@@ -64,12 +64,12 @@ const Blogs = () => {
                 </div>
 
 
-                <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-                    <div class="collapse-title text-xl font-medium">
+                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                    <div className="collapse-title text-xl font-medium">
                         How does prototypical inheritance work?
 
                     </div>
-                    <div class="collapse-content">
+                    <div className="collapse-content">
                         <p>
                             Prototypical Inheritance means ,
                             A way by which a object can inherit another object and use that object's property and methods as well as modify the methods also. Javascript also can work this way.
@@ -77,12 +77,12 @@ const Blogs = () => {
 
                     </div>
                 </div>
-                <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-                    <div class="collapse-title text-xl font-medium">
+                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                    <div className="collapse-title text-xl font-medium">
                         Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts
 
                     </div>
-                    <div class="collapse-content">
+                    <div className="collapse-content">
                         <p>
                             We don't update state directly because the function setState is cconnected to component lifeCycle. When we set state using that it executes some lifecycle methods by which component rerenders.
                             If we set it directly it will not change the state immedieately. rather it will create a Promise and we will loss the control of all state across the componenets.
@@ -94,26 +94,28 @@ const Blogs = () => {
 
 
 
-                <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-                    <div class="collapse-title text-xl font-medium">
+                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                    <div className="collapse-title text-xl font-medium">
                         You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?
 
                     </div>
-                    <div class="collapse-content">
+                    <div className="collapse-content">
                         <p>
-                           const find = products.filter(product => product.name.includes(searchTxt))
+                           {
+                               `const find = products.filter(product => product.name.includes(searchTxt))`
+                           }
 
                         </p>
 
                     </div>
                 </div>
 
-                <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
-                    <div class="collapse-title text-xl font-medium">
+                <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+                    <div className="collapse-title text-xl font-medium">
                         What is a unit test? Why should write unit tests?
 
                     </div>
-                    <div class="collapse-content">
+                    <div className="collapse-content">
                         <p>
                             Unit testing is a testing method that tests an individual software unit in isolation. This involves verifying the output of a function or component for a given input.
 

@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useProfile from '../../../hooks/useProfile';
+import Loader from '../../shared/Loader';
 
 const SideBar = () => {
     const [profile, setProfile, setProfileLoading] = useProfile();
-
+    
+    if(setProfileLoading){
+        return <Loader/>
+    }
+    
     const AdminSidebar = () => {
         return (
 
