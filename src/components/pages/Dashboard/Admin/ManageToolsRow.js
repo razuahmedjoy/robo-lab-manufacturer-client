@@ -9,7 +9,7 @@ const ManageToolsRow = ({ tool, index, setDeleteIt }) => {
             <td>{tool.minimum_order}</td>
             <td>{tool.available_stock}</td>
             <td>
-                <label onClick={()=>setDeleteIt(tool)} for="delete-tool" class="btn btn-xs btn-error modal-button text-white">Delete</label>
+                <label onClick={()=>setDeleteIt(tool)} htmlFor="delete-tool" className="btn btn-xs btn-error modal-button text-white">Delete</label>
            
             </td>
 

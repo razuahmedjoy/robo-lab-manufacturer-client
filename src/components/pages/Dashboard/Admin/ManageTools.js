@@ -8,7 +8,7 @@ const ManageTools = () => {
 
     const [deleteIt, setDeleteIt] = useState(null);
 
-    const { data: alltools, isLoading } = useQuery(['managetools'], () =>
+    const { data: alltools, isLoading , refetch} = useQuery(['managetools'], () =>
         fetch('http://localhost:5000/tools')
             .then(response => response.json())
             .then(data => data)
@@ -23,8 +23,8 @@ const ManageTools = () => {
             <h2 className="text-center text-3xl my-3">Manage Tools</h2>
 
             <div>
-                <div class="overflow-x-auto">
-                    <table class="table table-compact w-full">
+                <div className="overflow-x-auto">
+                    <table className="table table-compact w-full">
                         <thead>
                             <tr>
                                 <th></th>
@@ -47,7 +47,7 @@ const ManageTools = () => {
                     </table>
 
                     {
-                        deleteIt && <DeleteToolModal setDeleteIt={setDeleteIt} tool={deleteIt}/>
+                        deleteIt && <DeleteToolModal setDeleteIt={setDeleteIt} tool={deleteIt} redetch={refetch}/>
                     }
 
 
