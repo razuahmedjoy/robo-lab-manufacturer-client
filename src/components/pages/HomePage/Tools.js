@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import Loader from '../../shared/Loader';
 import SectionTitle from '../../shared/SectionTitle';
 import ToolsGrid from './ToolsGrid';
 
 const Tools = () => {
 
-    const [tools, setTools] = useState([]);
+    // const [tools, setTools] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch('tools.json')
+    // using react query instead of normal fetch
+    const { data: tools, isLoading } = useQuery(['tools'], () =>
+        fetch(`http://localhost:5000/tools`)
             .then(res => res.json())
-            .then(data => {
-                setTools(data);
-                setLoading(false);
-            }
-            );
-    }, [])
+    )
 
-    if (loading) {
+
+
+    if (isLoading) {
         return <Loader />
     }
 
@@ -31,7 +30,7 @@ const Tools = () => {
 
             <div className="tools-grid grid grod-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 gap-5 place-content-center justify-items-center px-2 md:px-10">
                 {
-                    tools.length > 0 && tools.map(tool => <ToolsGrid key={tool._id} tool={tool} />)
+                    tools?.length > 0 && tools?.map(tool => <ToolsGrid key={tool._id} tool={tool} />)
                 }
 
 
