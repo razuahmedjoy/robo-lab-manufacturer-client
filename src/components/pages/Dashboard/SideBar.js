@@ -8,9 +8,14 @@ const SideBar = () => {
     const AdminSidebar = () => {
         return (
 
+           <>
             <li>
                 <Link to="manageOrders">Manage Orders</Link>
             </li>
+            <li>
+                <Link to="allusers">All Users</Link>
+            </li>
+           </>
         )
     }
 
