@@ -28,7 +28,7 @@ const AllUsers = () => {
                             <th></th>
                             <th>Email</th>
                             <th>Roll</th>
-                            <th>actions</th>
+                            <th>Access</th>
                         </tr>
                     </thead>
                     <tbody>

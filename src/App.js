@@ -18,6 +18,7 @@ import MyProfile from './components/pages/Dashboard/MyProfile';
 import ManageOrders from './components/pages/Dashboard/Admin/ManageOrders';
 import RequireAdmin from './components/shared/RequireAdmin/RequireAdmin';
 import AllUsers from './components/pages/Dashboard/Admin/AllUsers';
+import AddTools from './components/pages/Dashboard/Admin/AddTools';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
 
             <Route path="manageOrders" element={<RequireAdmin><ManageOrders/></RequireAdmin>}></Route>
             <Route path="allusers" element={<RequireAdmin><AllUsers/></RequireAdmin>}></Route>
+            <Route path="addtools" element={<RequireAdmin><AddTools/></RequireAdmin>}></Route>
           </Route>
 
         </Routes>

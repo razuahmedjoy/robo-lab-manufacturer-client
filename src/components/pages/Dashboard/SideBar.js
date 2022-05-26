@@ -13,6 +13,9 @@ const SideBar = () => {
                 <Link to="manageOrders">Manage Orders</Link>
             </li>
             <li>
+                <Link to="addtools">Add Tools</Link>
+            </li>
+            <li>
                 <Link to="allusers">All Users</Link>
             </li>
            </>
