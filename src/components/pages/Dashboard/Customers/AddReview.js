@@ -11,7 +11,7 @@ const AddReview = () => {
     const [user] = useAuthState(auth)
 
     const onSubmit = async (e) => {
-        const review = {...e,user:user?.email}
+        const review = {...e,user:user?.displayName}
         const res = await axiosPrivate.post('http://localhost:5000/review',review);
         const data = res.data
         if(data.insertedId){
