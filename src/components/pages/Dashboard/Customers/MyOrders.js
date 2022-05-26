@@ -17,7 +17,7 @@ const MyOrders = () => {
     // using react query instead of normal fetch
     const { data: orders, isLoading, refetch } = useQuery(['orders', user], () => {
         if (user) {
-            return fetch(`http://localhost:5000/my-orders/${user.email}`, {
+            return fetch(`https://cryptic-sierra-30199.herokuapp.com/my-orders/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

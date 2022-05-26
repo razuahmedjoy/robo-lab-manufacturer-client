@@ -7,7 +7,7 @@ const DeleteConfirmModal = ({order,setDeleteIt,refetch}) => {
 
     const cancelOrder = async () => {
         
-        const res = await axiosPrivate.delete(`http://localhost:5000/order/${_id}`);
+        const res = await axiosPrivate.delete(`https://cryptic-sierra-30199.herokuapp.com/order/${_id}`);
         const data = await res.data;
         if (data.deletedCount > 0) {
             toast.success("SuccessFully Deleted");

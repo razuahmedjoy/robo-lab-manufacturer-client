@@ -32,7 +32,7 @@ const AddTools = () => {
                     toolsData["picture"] = result.data.url
                 }
 
-                fetch('http://localhost:5000/addtool', {
+                fetch('https://cryptic-sierra-30199.herokuapp.com/addtool', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

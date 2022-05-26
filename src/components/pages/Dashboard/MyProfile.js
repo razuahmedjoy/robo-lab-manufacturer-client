@@ -12,7 +12,7 @@ const MyProfile = () => {
 
     // using react query instead of normal fetch
     const { data: profile, isLoading, refetch } = useQuery(['profile', user], () =>
-        fetch(`http://localhost:5000/profile/${user?.email}`, {
+        fetch(`https://cryptic-sierra-30199.herokuapp.com/profile/${user?.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -43,10 +43,10 @@ const MyProfile = () => {
         if(e.target.linkedin.value){
             profile['linkedin'] = e.target.linkedin.value
         }
-        
+
         
 
-        const res = await axiosPrivate.put(`http://localhost:5000/updateprofile/${user?.email}`,profile)
+        const res = await axiosPrivate.put(`https://cryptic-sierra-30199.herokuapp.com/updateprofile/${user?.email}`,profile)
         const data = res.data.result;
         if(data.modifiedCount){
             toast.success("Updated Info!");

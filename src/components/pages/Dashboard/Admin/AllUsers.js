@@ -8,7 +8,7 @@ const AllUsers = () => {
 
     // using react query instead of normal fetch
     const { data: allusers, isLoading,refetch } = useQuery(['allusers'], () =>
-        axiosPrivate.get(`http://localhost:5000/allusers`)
+        axiosPrivate.get(`https://cryptic-sierra-30199.herokuapp.com/allusers`)
             .then(res => res.data)
     )
 

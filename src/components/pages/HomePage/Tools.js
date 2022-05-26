@@ -11,7 +11,7 @@ const Tools = () => {
 
     // using react query instead of normal fetch
     const { data: tools, isLoading } = useQuery(['tools'], () =>
-        fetch(`http://localhost:5000/tools`)
+        fetch(`https://cryptic-sierra-30199.herokuapp.com/tools`)
             .then(res => res.json())
     )
 

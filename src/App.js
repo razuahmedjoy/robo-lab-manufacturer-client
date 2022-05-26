@@ -19,6 +19,8 @@ import ManageOrders from './components/pages/Dashboard/Admin/ManageOrders';
 import RequireAdmin from './components/shared/RequireAdmin/RequireAdmin';
 import AllUsers from './components/pages/Dashboard/Admin/AllUsers';
 import AddTools from './components/pages/Dashboard/Admin/AddTools';
+import Blogs from './components/Blogs/Blogs';
+import NotFoundPage from './components/NotFoundPage';
 
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/forget-pass" element={<ForgotPass />}></Route>
+          <Route path="/blogs" element={<Blogs />}></Route>
 
           <Route path="/details/:id" element={<RequireAuth><ToolsDetails /></RequireAuth>}></Route>
           <Route path="/order/:id" element={<RequireAuth><OrderModal /></RequireAuth>}></Route>
@@ -49,6 +52,8 @@ function App() {
             <Route path="allusers" element={<RequireAdmin><AllUsers/></RequireAdmin>}></Route>
             <Route path="addtools" element={<RequireAdmin><AddTools/></RequireAdmin>}></Route>
           </Route>
+
+          <Route path="*" element={<NotFoundPage/>} ></Route>
 
         </Routes>
 

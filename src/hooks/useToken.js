@@ -19,7 +19,7 @@ const useToken = (user) => {
             if (email) {
 
                 try{
-                   const res =  await fetch(`http://localhost:5000/updateuser`, {
+                   const res =  await fetch(`https://cryptic-sierra-30199.herokuapp.com/updateuser`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json',

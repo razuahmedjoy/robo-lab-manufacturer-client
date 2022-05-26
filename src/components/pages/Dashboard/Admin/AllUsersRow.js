@@ -5,7 +5,7 @@ import axiosPrivate from '../../../../api/axiosPrivate';
 const AllUsersRow = ({user,index,refetch}) => {
 
     const makeAdmin = async ()=>{
-        const res = await axiosPrivate.put(`http://localhost:5000/makeadmin/${user.email}`)
+        const res = await axiosPrivate.put(`https://cryptic-sierra-30199.herokuapp.com/makeadmin/${user.email}`)
         const result = await res.data
         if(result.modifiedCount>0){
             toast.success("Successfully granted Admin Access")

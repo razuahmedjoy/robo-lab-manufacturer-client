@@ -12,7 +12,7 @@ const AddReview = () => {
 
     const onSubmit = async (e) => {
         const review = {...e,user:user?.displayName}
-        const res = await axiosPrivate.post('http://localhost:5000/review',review);
+        const res = await axiosPrivate.post('https://cryptic-sierra-30199.herokuapp.com/review',review);
         const data = res.data
         if(data.insertedId){
             toast.success("Review Added");

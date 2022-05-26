@@ -34,7 +34,7 @@ const OrderModal = ({ item }) => {
             payment: "unpaid"
         }
 
-        axiosPrivate.post('http://localhost:5000/order', order)
+        axiosPrivate.post('https://cryptic-sierra-30199.herokuapp.com/order', order)
             .then(res => {
                 
                 if (res.data.insertedId) {

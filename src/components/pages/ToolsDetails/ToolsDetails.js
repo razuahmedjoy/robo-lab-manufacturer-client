@@ -11,7 +11,7 @@ const ToolsDetails = () => {
     const { id } = useParams();
     useEffect(() => {
 
-        fetch(`http://localhost:5000/tool/${id}`)
+        fetch(`https://cryptic-sierra-30199.herokuapp.com/tool/${id}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

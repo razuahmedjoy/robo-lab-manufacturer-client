@@ -11,7 +11,7 @@ const useProfile = (user) => {
     useEffect(()=>{
         const email = stateuser?.email;
         if(email){
-            fetch(`http://localhost:5000/profile/${email}`,{
+            fetch(`https://cryptic-sierra-30199.herokuapp.com/profile/${email}`,{
                 method: 'GET',
                 headers:{
                     'contentType': 'application/json',

@@ -16,7 +16,7 @@ const Reviews = () => {
     //         .then(data => setReviews(data));
     // }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://cryptic-sierra-30199.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])
