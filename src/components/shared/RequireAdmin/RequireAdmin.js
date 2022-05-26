@@ -14,7 +14,7 @@ const RequireAdmin = ({ children }) => {
     const location = useLocation()
 
     if(profile){
-        console.log(profile);
+        // console.log(profile);
     }
 
 
