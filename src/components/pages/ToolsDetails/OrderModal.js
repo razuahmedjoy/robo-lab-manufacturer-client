@@ -27,7 +27,7 @@ const OrderModal = ({ item }) => {
             tool: item.name,
             toolId: item._id,
             quantity: item.quantity,
-            totalPrice: item.quantity * item.price,
+            totalPrice: parseInt(item.quantity) * parseInt(item.price),
             user: user.email,
             contact_no: data.contact_no,
             status: "Pending",
@@ -72,7 +72,7 @@ const OrderModal = ({ item }) => {
                             <input className="input input-bordered w-full" type="number" {...register("quantity")} value={item.quantity} readOnly />
 
                             <label htmlFor="quantity" className="label pb-0">Total Price</label>
-                            <input className="input input-bordered w-full" type="number" {...register("totalPrice")} value={item.quantity * item.price} readOnly />
+                            <input className="input input-bordered w-full" type="number" {...register("totalPrice")} value={parseInt(item.quantity) * parseInt(item.price)} readOnly />
 
                             <label htmlFor="address" className="label pb-0">Address</label>
                             <input className="input input-bordered w-full" type="text" {...register("address", { required: true })} />

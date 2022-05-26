@@ -34,7 +34,7 @@ const ToolsDetails = () => {
 
     const reduceQuantity = () => {
         if (cart.quantity > tool.minimum_order) {
-            const newQuantity = cart.quantity - 1;
+            const newQuantity = parseInt(cart.quantity) - 1;
             const newCartItem = { ...cart, quantity: newQuantity };
             setCart(newCartItem);
         }
@@ -45,7 +45,7 @@ const ToolsDetails = () => {
     const increaseQuantity = () => {
 
         if (cart.quantity < tool.available_stock) {
-            const newQuantity = cart.quantity + 1;
+            const newQuantity = parseInt(cart.quantity) + 1;
             const newCartItem = { ...cart, quantity: newQuantity };
             setCart(newCartItem);
         }

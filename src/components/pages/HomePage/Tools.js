@@ -30,7 +30,7 @@ const Tools = () => {
 
             <div className="tools-grid grid grod-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 gap-5 place-content-center justify-items-center px-2 md:px-10">
                 {
-                    tools?.length > 0 && tools?.map(tool => <ToolsGrid key={tool._id} tool={tool} />)
+                    tools?.length > 0 && tools?.slice(0,6).map(tool => <ToolsGrid key={tool._id} tool={tool} />)
                 }
 
 
