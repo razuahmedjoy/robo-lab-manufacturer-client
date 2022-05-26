@@ -9,7 +9,7 @@ const ManageTools = () => {
     const [deleteIt, setDeleteIt] = useState(null);
 
     const { data: alltools, isLoading , refetch} = useQuery(['managetools'], () =>
-        fetch('http://localhost:5000/tools')
+        fetch('https://cryptic-sierra-30199.herokuapp.com/tools')
             .then(response => response.json())
             .then(data => data)
     )

@@ -5,7 +5,7 @@ import axiosPrivate from '../../../../api/axiosPrivate';
 const DeleteToolModal = ({tool,setDeleteIt, refetch}) => {
 
     const deleteTool = async ()=>{
-        const res = await axiosPrivate.delete(`http://localhost:5000/tool/${tool._id}`);
+        const res = await axiosPrivate.delete(`https://cryptic-sierra-30199.herokuapp.com/tool/${tool._id}`);
         
         const result = res.data;
         console.log(result);

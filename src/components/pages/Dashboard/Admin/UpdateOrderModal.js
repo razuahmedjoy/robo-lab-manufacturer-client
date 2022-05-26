@@ -12,7 +12,7 @@ const UpdateOrderModal = ({ setUpdateorder, order,refetch }) => {
         // console.log(data);
         const updating = toast.loading("Updating");
 
-        const res = await axiosPrivate.put(`http://localhost:5000/order/update/${order._id}`,data)
+        const res = await axiosPrivate.put(`https://cryptic-sierra-30199.herokuapp.com/order/update/${order._id}`,data)
         const result = await res.data;
         if(result.matchedCount > 0){
            
