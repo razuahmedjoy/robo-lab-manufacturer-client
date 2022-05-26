@@ -25,7 +25,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [token] = useToken(user)
+    const [token] =  useToken(user||stateUser);
 
     useEffect(() => {
         if (token || stateUser) {
@@ -34,7 +34,7 @@ const Login = () => {
         if (error) {
             setInputError(error.message);
         }
-    }, [token, error, stateUser])
+    }, [token, error])
 
 
     if (loading || stateLoading) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -22,16 +22,19 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating] = useUpdateProfile(auth);
 
-    const [token] = useToken(user)
+    const [token] = useToken(user||stateUser)
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         setInputError('')
         const email = e.email;
         const password = e.password;
         const password2 = e.password2;
         if (password === password2) {
-            createUserWithEmailAndPassword(email, password);
+            await createUserWithEmailAndPassword(email, password);
+            await updateProfile({ displayName: e.username });
+
 
         } else {
             setInputError('Both password field should be same')
@@ -52,7 +55,7 @@ const Register = () => {
 
    
 
-    if (loading || stateLoading) {
+    if (loading || stateLoading || updating) {
         return (
             <div className="my-20">
                 <Loader />
@@ -68,6 +71,14 @@ const Register = () => {
                 </div>
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <label htmlFor="username">Username</label>
+
+                        <input type="text" placeholder="Username.." className="input input-bordered w-full" {...register("username", { required: true })} required />
+
+                        {errors.username && <p className="text-red-500 text-sm">Username is required</p>}
+              
+
                         <label htmlFor="email">Email Address</label>
 
                         <input type="email" placeholder="Email.." className="input input-bordered w-full" {...register("email", { required: true })} required />

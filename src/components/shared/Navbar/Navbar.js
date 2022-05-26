@@ -10,8 +10,14 @@ const Navbar = () => {
     if (loading) {
         return;
     }
+
+    const logOut = () => {
+        localStorage.removeItem('accessToken');
+        signOut(auth);
+
+    }
     return (
-        <div className="navbar bg-base-100 fixed top-0 z-[9999]">
+        <div className="navbar bg-base-100 fixed top-0 z-[9999] shadow-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -45,9 +51,32 @@ const Navbar = () => {
                 {
                     user ?
 
+
                         <>
-                            <Link to="/dashboard" className="btn btn-sm btn-primary text-white">{user?.email.split("@")[0]}</Link>
-                            <button onClick={() => signOut(auth)}className="btn btn-sm btn-secondary">LogOut</button>
+                           
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="user" src="https://i.ibb.co/RYrrdrD/899048ab0cc455154006fdb9676964b3.jpg" />
+                                    </div>
+                                </label>
+                                <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 gap-y-1">
+                                    <li>
+                                        <Link to="#" className="justify-between">
+                                            {
+                                                user?.displayName ? user.displayName :
+                                                    user?.email.split("@")[0]
+                                            }
+
+                                        </Link>
+                                    </li>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
+                                    <li>
+                                        <p onClick={logOut} className="btn btn-sm btn-secondary">Logout</p>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </>
 
                         :

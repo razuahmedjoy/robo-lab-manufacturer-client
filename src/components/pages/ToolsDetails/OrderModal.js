@@ -1,9 +1,10 @@
-import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
 import Loader from '../../shared/Loader';
 
@@ -20,22 +21,24 @@ const OrderModal = ({ item }) => {
     }
 
     const onSubmit = data => {
+        
 
         const order = {
             tool: item.name,
             toolId: item._id,
-            quantity: data.quantity,
-            totalPrice: data.totalPrice,
+            quantity: item.quantity,
+            totalPrice: item.quantity * item.price,
             user: user.email,
             contact_no: data.contact_no,
-            status: "Placed",
+            status: "Pending",
             payment: "unpaid"
         }
 
-        axios.post('http://localhost:5000/order', order)
+        axiosPrivate.post('http://localhost:5000/order', order)
             .then(res => {
+                
                 if (res.data.insertedId) {
-                    toast.success("Placed Order");
+                    toast.success("Order Placed successfully");
                     navigate('/dashboard');
 
                 }
@@ -43,6 +46,11 @@ const OrderModal = ({ item }) => {
             )
             .catch(function (error) {
                 console.log(error);
+                if(error.response.status === 403 || error.response.status ===401){
+                    localStorage.removeItem('accessToken')
+                    signOut(auth);
+
+                };
             });
 
     };

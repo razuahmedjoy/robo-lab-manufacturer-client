@@ -12,12 +12,14 @@ import ToolsDetails from './components/pages/ToolsDetails/ToolsDetails';
 import RequireAuth from './components/shared/RequireAuth/RequireAuth';
 import OrderModal from './components/pages/ToolsDetails/OrderModal';
 import Dashboard from './components/pages/Dashboard/Dashboard';
+import MyOrders from './components/pages/Dashboard/Customers/MyOrders';
+import AddReview from './components/pages/Dashboard/Customers/AddReview';
 
 function App() {
   return (
     <>
       <Navbar />
-      <div className="App mt-10 pt-10">
+      <div className="App mt-7 pt-10">
 
 
         <Routes>
@@ -31,7 +33,11 @@ function App() {
           
           
           
-          <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}></Route>
+          <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+            <Route index element={<div>Dashboard Index</div>}></Route>
+            <Route path="my-orders" element={<MyOrders/>}></Route>
+            <Route path="addreview" element={<AddReview/>}></Route>
+          </Route>
 
         </Routes>
 
