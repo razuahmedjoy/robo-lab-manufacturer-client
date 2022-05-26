@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -7,46 +8,45 @@ import auth from '../../../firebase.init';
 import Loader from '../../shared/Loader';
 
 const OrderModal = ({ item }) => {
-    const { register, handleSubmit } = useForm();
-    
-    const [user,loading] = useAuthState(auth);
+
+
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate()
 
     if (loading) {
-        return <Loader/>
+        return <Loader />
     }
 
     const onSubmit = data => {
 
         const order = {
-            tool:item.name,
-            toolId:item._id,
-            quantity:data.quantity,
-            totalPrice:data.totalPrice,
-            user:user.email,
-            contact_no:data.contact_no,
-            status:"Placed",
-            payment:"unpaid"
+            tool: item.name,
+            toolId: item._id,
+            quantity: data.quantity,
+            totalPrice: data.totalPrice,
+            user: user.email,
+            contact_no: data.contact_no,
+            status: "Placed",
+            payment: "unpaid"
         }
 
-        fetch('http://localhost:5000/order',{
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body:JSON.stringify(order)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-           
-                toast.success("Your Order Placed!");
-                navigate('/dashboard');
+        axios.post('http://localhost:5000/order', order)
+            .then(res => {
+                if (res.data.insertedId) {
+                    toast.success("Placed Order");
+                    navigate('/dashboard');
 
-
+                }
             }
-        })
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+
     };
+
     return (
         <div>
 
@@ -58,19 +58,28 @@ const OrderModal = ({ item }) => {
                     <div className="py-4">
 
                         <form autoComplete="off" className="flex flex-col gap-y-2" onSubmit={handleSubmit(onSubmit)}>
-                            <input className="input input-bordered w-full" type="email" {...register("email")} value={user?.email} readOnly/>
-                        
-                            <label htmlFor="quantity" className="label pb-0">Quantity</label>
-                            <input className="input input-bordered w-full" type="number" {...register("quantity")} value={item.quantity} readOnly/>
-                            
-                            <label htmlFor="quantity" className="label pb-0">Total Price</label>
-                            <input className="input input-bordered w-full" type="number" {...register("totalPrice")} value={item.quantity * item.price} readOnly/>
-                            
-                            <label htmlFor="contact_no" className="label pb-0">Contact No.</label>
-                            <input className="input input-bordered w-full" type="number" {...register("contact_no")}/>
+                            <input className="input input-bordered w-full" type="email" {...register("email")} value={user?.email} readOnly />
 
-                        
-                     
+                            <label htmlFor="quantity" className="label pb-0">Quantity</label>
+                            <input className="input input-bordered w-full" type="number" {...register("quantity")} value={item.quantity} readOnly />
+
+                            <label htmlFor="quantity" className="label pb-0">Total Price</label>
+                            <input className="input input-bordered w-full" type="number" {...register("totalPrice")} value={item.quantity * item.price} readOnly />
+
+                            <label htmlFor="address" className="label pb-0">Address</label>
+                            <input className="input input-bordered w-full" type="text" {...register("address", { required: true })} />
+                            
+                            {errors?.address && <p className="text-red-500">Address is required</p>}
+
+                      
+
+
+                            <label htmlFor="contact_no" className="label pb-0">Contact No.</label>
+                            <input className="input input-bordered w-full" type="number" {...register("contact_no")} />
+
+
+
+
                             <input className="btn btn-primary text-white" type="submit" value="Confirm Order" />
                         </form>
                     </div>

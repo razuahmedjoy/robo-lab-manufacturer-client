@@ -3,6 +3,7 @@ import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hook
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import Loader from '../../shared/Loader';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
@@ -24,14 +25,16 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(user)
+
     useEffect(() => {
-        if (user || stateUser) {
+        if (token || stateUser) {
             navigate(from, { replace: true })
         }
         if (error) {
             setInputError(error.message);
         }
-    }, [user, error, stateUser])
+    }, [token, error, stateUser])
 
 
     if (loading || stateLoading) {

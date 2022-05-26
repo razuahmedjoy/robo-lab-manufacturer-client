@@ -3,6 +3,7 @@ import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import Loader from '../../shared/Loader';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
@@ -13,12 +14,16 @@ const Register = () => {
 
     const [stateUser,stateLoading] = useAuthState(auth);
 
+  
+
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [token] = useToken(user)
 
     const onSubmit = (e) => {
         setInputError('')
@@ -35,13 +40,13 @@ const Register = () => {
     }
 
     useEffect(() => {
-        if (user||stateUser) {
+        if (token||stateUser) {
             navigate('/')
         }
         if (error) {
             setInputError(error.message);
         }
-    }, [user,error,stateUser])
+    }, [token,stateUser,error])
 
 
 
